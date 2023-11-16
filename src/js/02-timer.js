@@ -1,3 +1,6 @@
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
+
 const refs = {
   button: document.querySelector("button[data-start]"),
   days: document.querySelector("span[data-days]"),

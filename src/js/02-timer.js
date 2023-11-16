@@ -1,5 +1,6 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import iziToast from "izitoast";
 
 const refs = {
   button: document.querySelector("button[data-start]"),

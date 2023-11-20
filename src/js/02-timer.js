@@ -8,6 +8,7 @@ const refs = {
   hours: document.querySelector("span[data-hours]"),
   minutes: document.querySelector("span[data-minutes]"),
   seconds: document.querySelector("span[data-seconds]"),
+  input: document.querySelector("input"),
 };
 
 let futureDate = "";
@@ -17,6 +18,7 @@ refs.button.disabled = true;
 refs.button.addEventListener("click", onDateButtonClick);
 
 const options = {
+  allowInput: true,
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
@@ -30,6 +32,8 @@ const options = {
 flatpickr("#datetime-picker", options);
 
 function onDateButtonClick() {
+  refs.button.disabled = true;
+  refs.input.disabled = true;
   let intervalId = setInterval(() => {
     const nowDate = new Date();
     const interval = futureDate - nowDate;
@@ -41,6 +45,7 @@ function onDateButtonClick() {
       clearInterval(intervalId);
       showToast("Time is over");
       renderDigits(result, "00");
+      refs.input.disabled = false;
     }
   }, 1000);
 }
